@@ -1,0 +1,28 @@
+int main(){
+    FILE *file;
+
+    file = fopen("file.txt", "r");
+
+    if (file == NULL){
+        printf("error");
+        return 1;
+    }
+
+    char c;
+    int count = 0;
+
+    while ((c = fgetc(file)) != EOF){
+        if(c == '\n'){
+            continue;
+        }else{
+            count++;
+        }
+
+        if (count % 5 == 0){
+            printf("%c", c);
+        }
+    }
+    
+    fclose(file);
+    
+}
